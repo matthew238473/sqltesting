@@ -1,0 +1,12 @@
+import sqlite3
+
+conn = sqlite3.connect('information.db')
+cursor = conn.cursor()
+value = input('what user do you want to delete: ')
+sql = '''
+       DELETE FROM users
+       WHERE username="matthew"
+      '''
+cursor.execute(sql)
+conn.commit()
+conn.close()

@@ -1,0 +1,22 @@
+import sqlite3
+import getpass
+
+conn = sqlite3.connect('information.db')
+cursor = conn.cursor()
+print ("let's import some users")
+while True:
+    email = input('email: ')
+    username = input('username: ')
+    password = getpass.getpass()
+    sql = ''' insert into users
+                (email, username, password)
+                values
+                  (:st_email, :st_username, :st_password) '''
+    cursor.execute(sql, {'st_email':email, 'st_username':username, 'st_password':password})
+    conn.commit()
+    cont = input("another user? ")
+    if cont[0].lower() == 'n':
+        break
+cursor.close()
+    
+

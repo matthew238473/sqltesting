@@ -1,0 +1,11 @@
+import sqlite3
+
+conn = sqlite3.connect('information.db')
+cursor = conn.cursor()
+sql = '''SELECT *
+     FROM users
+     WHERE username="matthew" '''
+results = cursor.execute(sql)
+username = results.fetchall()
+print(username)
+conn.close()

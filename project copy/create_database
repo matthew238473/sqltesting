@@ -1,0 +1,11 @@
+import sqlite3
+
+conn = sqlite3.connect('information.db')
+cursor = conn.cursor()
+sql = '''create table users (
+    email text,
+    username text,
+    password text
+)'''
+cursor.execute(sql)
+cursor.close()

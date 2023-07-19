@@ -1,0 +1,10 @@
+import sqlite3
+
+
+conn = sqlite3.connect('information.db')
+cursor = conn.cursor()
+sql = "select * from users"
+results = cursor.execute(sql)
+all_users = results.fetchall()
+print(all_users)
+cursor.close()
